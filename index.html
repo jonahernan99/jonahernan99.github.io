@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jonathan Hernandez · Software Engineer, Applied AI</title>
+  <meta name="description" content="Jonathan Hernandez: software engineer in Toronto building practical AI applications, from NLP pipelines to medical imaging. M.Sc. Computer Science (Applied AI) student.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jonathan Hernandez · Software Engineer, Applied AI">
+  <meta property="og:description" content="Software engineer in Toronto building practical AI applications, from NLP pipelines to medical imaging.">
+  <meta property="og:url" content="https://jonahernan99.github.io/">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EJH%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="#top">Jonathan Hernandez</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container" id="top">
+      <p class="status"><span class="dot" aria-hidden="true"></span> Open to work in Toronto and across Canada</p>
+      <h1>Software engineer building<br><span class="accent">practical AI applications.</span></h1>
+      <p class="lead">
+        I'm Jonathan, an M.Sc. Computer Science (Applied AI) student based in Toronto, with a
+        background in deep learning research for medical imaging. I care about AI that is
+        explainable, measured honestly and engineered to last: clean code, tests and CI.
+      </p>
+      <p class="roles">Looking for <strong>Software Engineer</strong>, <strong>ML Engineer</strong> and <strong>AI Engineer</strong> roles.</p>
+      <div class="actions">
+        <a class="button primary" href="#projects">See my projects</a>
+        <a class="button" href="https://github.com/jonahernan99" rel="noopener">GitHub</a>
+        <a class="button" href="https://www.linkedin.com/in/jonathanhbee/" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <section class="section container" id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects</h2>
+
+      <article class="project featured">
+        <div class="project-head">
+          <h3>JobLens</h3>
+          <span class="badge">v0.4.0 · Active</span>
+        </div>
+        <p class="tagline">Explainable resume-to-job matching with NLP skill extraction and gap analysis.</p>
+        <p>
+          Applicant tracking systems score resumes without saying why. JobLens makes the
+          comparison transparent: it extracts skills from both documents, separates a posting's
+          required skills from its nice-to-haves, and shows exactly which gaps cost you points.
+        </p>
+        <ul class="points">
+          <li>Symbol-aware extraction over a curated taxonomy of ~100 tech skills, plus an implication graph (FAISS counts as Vector Databases)</li>
+          <li>Parses required vs. preferred requirements, including Canadian phrasing such as <em>"is an asset"</em></li>
+          <li>Pluggable similarity: TF-IDF or sentence-transformer embeddings, chunked to fit the model's token limit</li>
+          <li>Batch mode ranks a folder of postings and lists the skills missing most often across them</li>
+        </ul>
+        <div class="metric">
+          <span class="metric-value">0.00 → 0.38</span>
+          <span class="metric-label">Similarity of a paraphrase with no shared words: TF-IDF vs. embeddings</span>
+        </div>
+        <ul class="tags" aria-label="Technologies">
+          <li>Python</li><li>NLP</li><li>scikit-learn</li><li>Hugging Face</li><li>sentence-transformers</li><li>pytest</li><li>GitHub Actions</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/jonahernan99/joblens" rel="noopener">Source code →</a>
+          <span class="muted">98 tests · CI on Python 3.10–3.12 · versioned releases</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>Lung Nodule Detection</h3>
+          <span class="badge wip">In progress</span>
+        </div>
+        <p class="tagline">Rebuilding my thesis in the open with a stricter, patient-level evaluation.</p>
+        <p>
+          My thesis evaluated nodule detection mostly per 2D slice, which lets near-identical
+          neighbouring slices leak between training and test sets. This reimplementation splits
+          data by scan using LUNA16's official subsets and measures false positives per scan, as
+          the LUNA16 challenge does, so results will be lower but trustworthy.
+        </p>
+        <ul class="points">
+          <li>Scan-level FROC analysis and CPM metric following the LUNA16 hit criterion</li>
+          <li>World-to-voxel coordinate conversion and LUNA16 annotation readers</li>
+          <li>Next: CT preprocessing, YOLO training on a cloud GPU, and 2D-to-3D candidate merging</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li>Python</li><li>NumPy</li><li>Medical imaging</li><li>Computer vision</li><li>pytest</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/jonahernan99/lung-nodule-detection" rel="noopener">Source code →</a>
+          <span class="muted">100% test coverage on evaluation code</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section container" id="research" aria-labelledby="research-title">
+      <h2 id="research-title">Research</h2>
+      <article class="project">
+        <div class="project-head">
+          <h3>Lung nodule detection in CT with a multi-channel YOLO representation</h3>
+        </div>
+        <p class="tagline">B.Eng. thesis · BIVL²ab lab, Universidad Industrial de Santander · 2023</p>
+        <p>
+          Adapted YOLOv5s to localize lung nodules on CT slices from LIDC-IDRI (1,187 nodules marked
+          by at least three radiologists). I benchmarked six YOLO variants and ran ablation studies on
+          detection stages and anchor boxes; co-author Dylan Villalba led the Eigen-CAM explainability
+          work. Advised by Prof. Fabio Martínez and Prof. Franklin Sepúlveda.
+        </p>
+        <div class="metric">
+          <span class="metric-value">88.0% CPM</span>
+          <span class="metric-label">On a slice-level test split, with false-positive rates per slice. The reimplementation above re-measures it per scan.</span>
+        </div>
+        <ul class="tags" aria-label="Technologies">
+          <li>Deep learning</li><li>YOLOv5</li><li>Object detection</li><li>Explainability</li><li>LIDC-IDRI</li>
+        </ul>
+        <div class="links">
+          <a href="https://noesis.uis.edu.co/entities/publication/4b44ab5b-d4e8-49c6-8d12-509ff69b15f4" rel="noopener">Read the thesis (Spanish) →</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section container" id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Used in my projects</h3>
+          <ul class="tags">
+            <li>Python</li><li>NumPy</li><li>scikit-learn</li><li>Hugging Face</li><li>sentence-transformers</li><li>YOLOv5</li><li>NLP</li><li>Computer vision</li><li>pytest</li><li>Git</li><li>GitHub Actions</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Currently learning</h3>
+          <ul class="tags">
+            <li>LLM applications</li><li>RAG</li><li>LangChain</li><li>FastAPI</li><li>Docker</li><li>SQL analytics</li><li>AWS</li><li>Azure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <ul class="timeline">
+        <li>
+          <span class="when">Expected 2027</span>
+          <span class="what"><strong>M.Sc. Computer Science, Applied AI</strong></span>
+        </li>
+        <li>
+          <span class="when">2023</span>
+          <span class="what"><strong>B.Eng. Electronic Engineering</strong>, Universidad Industrial de Santander, Colombia</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section container contact" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Let's talk</h2>
+      <p>I'm interested in software, ML and AI engineering roles in Toronto. The fastest way to reach me is LinkedIn.</p>
+      <div class="actions">
+        <a class="button primary" href="https://www.linkedin.com/in/jonathanhbee/" rel="noopener">Message me on LinkedIn</a>
+        <a class="button" href="https://github.com/jonahernan99" rel="noopener">See my GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© 2026 Jonathan Hernandez · Toronto, ON</p>
+  </footer>
+</body>
+</html>
