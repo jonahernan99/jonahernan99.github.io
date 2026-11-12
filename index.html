@@ -103,6 +103,37 @@
           <span class="muted">100% test coverage on evaluation code</span>
         </div>
       </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>Toronto Tech Job Market</h3>
+          <span class="badge wip">In progress</span>
+        </div>
+        <p class="tagline">SQL analysis of a year of official Job Bank postings: who is hiring in tech, what they pay and how demand moves.</p>
+        <p>
+          A DuckDB pipeline turns twelve monthly government files into a clean, typed SQL view.
+          Real open data is messy: the files are UTF-16, their columns change over time, one header
+          has a double space and salaries arrive in six different units. Each issue is handled and
+          documented before any figure is reported.
+        </p>
+        <ul class="points">
+          <li>Discovers and downloads monthly files through the open.canada.ca CKAN API</li>
+          <li>SQL staging view that types every column and annualizes hourly to monthly pay with documented rules</li>
+          <li>Explicit tech occupation list, since a code-prefix filter would also count architects and urban planners</li>
+          <li>Next: salary outlier rules, demand and pay analysis, written findings and a dashboard</li>
+        </ul>
+        <div class="metric">
+          <span class="metric-value">6,301</span>
+          <span class="metric-label">Tech postings in the Toronto Region, Nov 2025 – Oct 2026, out of 601,330 rows loaded (one row per posting and location)</span>
+        </div>
+        <ul class="tags" aria-label="Technologies">
+          <li>SQL</li><li>DuckDB</li><li>Python</li><li>Data cleaning</li><li>Open data</li><li>pytest</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/jonahernan99/toronto-tech-job-market" rel="noopener">Source code →</a>
+          <span class="muted">28 tests · CI · data under the Open Government Licence – Canada</span>
+        </div>
+      </article>
     </section>
 
     <section class="section container" id="research" aria-labelledby="research-title">
@@ -137,13 +168,13 @@
         <div class="skill-group">
           <h3>Used in my projects</h3>
           <ul class="tags">
-            <li>Python</li><li>NumPy</li><li>scikit-learn</li><li>Hugging Face</li><li>sentence-transformers</li><li>YOLOv5</li><li>NLP</li><li>Computer vision</li><li>pytest</li><li>Git</li><li>GitHub Actions</li>
+            <li>Python</li><li>SQL</li><li>DuckDB</li><li>NumPy</li><li>scikit-learn</li><li>Hugging Face</li><li>sentence-transformers</li><li>YOLOv5</li><li>NLP</li><li>Computer vision</li><li>pytest</li><li>Git</li><li>GitHub Actions</li>
           </ul>
         </div>
         <div class="skill-group">
           <h3>Currently learning</h3>
           <ul class="tags">
-            <li>LLM applications</li><li>RAG</li><li>LangChain</li><li>FastAPI</li><li>Docker</li><li>SQL analytics</li><li>AWS</li><li>Azure</li>
+            <li>LLM applications</li><li>RAG</li><li>LangChain</li><li>FastAPI</li><li>Docker</li><li>Power BI</li><li>AWS</li><li>Azure</li>
           </ul>
         </div>
       </div>
