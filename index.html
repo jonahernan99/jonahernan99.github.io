@@ -91,16 +91,16 @@
           the LUNA16 challenge does, so results will be lower but trustworthy.
         </p>
         <ul class="points">
-          <li>Scan-level FROC analysis and CPM metric following the LUNA16 hit criterion</li>
-          <li>World-to-voxel coordinate conversion and LUNA16 annotation readers</li>
-          <li>Next: CT preprocessing, YOLO training on a cloud GPU, and 2D-to-3D candidate merging</li>
+          <li>Scan-level FROC/CPM validated against the official LUNA16 evaluation: identical sensitivities on the challenge's sample submission</li>
+          <li>CT preprocessing, patient-level splits by LUNA16 subset, and 2D-to-3D merging of slice detections</li>
+          <li>Training and evaluation notebook for a free Kaggle GPU; next: the full training run and results compared with the thesis</li>
         </ul>
         <ul class="tags" aria-label="Technologies">
-          <li>Python</li><li>NumPy</li><li>Medical imaging</li><li>Computer vision</li><li>pytest</li>
+          <li>Python</li><li>NumPy</li><li>YOLO</li><li>Medical imaging</li><li>Computer vision</li><li>pytest</li>
         </ul>
         <div class="links">
           <a href="https://github.com/jonahernan99/lung-nodule-detection" rel="noopener">Source code →</a>
-          <span class="muted">100% test coverage on evaluation code</span>
+          <span class="muted">108 tests · metric checked against the official challenge code</span>
         </div>
       </article>
 
