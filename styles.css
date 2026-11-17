@@ -235,6 +235,24 @@ h2 {
   border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
 }
 
+.project-figure {
+  margin: 0 0 1.25rem;
+}
+
+.project-figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.project-figure figcaption {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
 .project-head {
   display: flex;
   flex-wrap: wrap;
