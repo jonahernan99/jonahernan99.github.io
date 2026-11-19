@@ -81,26 +81,32 @@
       <article class="project">
         <div class="project-head">
           <h3>Lung Nodule Detection</h3>
-          <span class="badge wip">In progress</span>
+          <span class="badge">v0.5.0 · First results</span>
         </div>
-        <p class="tagline">Rebuilding my thesis in the open with a stricter, patient-level evaluation.</p>
+        <p class="tagline">Rebuilding my thesis in the open with a stricter, scan-level evaluation.</p>
         <p>
           My thesis evaluated nodule detection mostly per 2D slice, which lets near-identical
           neighbouring slices leak between training and test sets. This reimplementation splits
           data by scan using LUNA16's official subsets and measures false positives per scan, as
-          the LUNA16 challenge does, so results will be lower but trustworthy.
+          the LUNA16 challenge does. The result is lower than the thesis's 88.0%, as expected,
+          and it is the honest one.
         </p>
         <ul class="points">
           <li>Scan-level FROC/CPM validated against the official LUNA16 evaluation: identical sensitivities on the challenge's sample submission</li>
-          <li>CT preprocessing, patient-level splits by LUNA16 subset, and 2D-to-3D merging of slice detections</li>
-          <li>Training and evaluation notebook for a free Kaggle GPU; next: the full training run and results compared with the thesis</li>
+          <li>CT preprocessing, splits by LUNA16 subset, and 2D-to-3D merging of slice detections</li>
+          <li>Trained YOLOv5s on a free Kaggle GPU and tested once on 88 held-out scans, with a bootstrap confidence interval</li>
+          <li>Training curves show overfitting after about 35 epochs; early stopping and a 2.5D input are next</li>
         </ul>
+        <div class="metric">
+          <span class="metric-value">74.7% CPM</span>
+          <span class="metric-label">On 88 held-out LUNA16 scans, false positives counted per scan (95% CI 68.5–80.1%). Finds 80% of nodules at one false positive per scan.</span>
+        </div>
         <ul class="tags" aria-label="Technologies">
           <li>Python</li><li>NumPy</li><li>YOLO</li><li>Medical imaging</li><li>Computer vision</li><li>pytest</li>
         </ul>
         <div class="links">
           <a href="https://github.com/jonahernan99/lung-nodule-detection" rel="noopener">Source code →</a>
-          <span class="muted">108 tests · metric checked against the official challenge code</span>
+          <span class="muted">119 tests · metric checked against the official challenge code</span>
         </div>
       </article>
 
@@ -157,7 +163,7 @@
         </p>
         <div class="metric">
           <span class="metric-value">88.0% CPM</span>
-          <span class="metric-label">On a slice-level test split, with false-positive rates per slice. The reimplementation above re-measures it per scan.</span>
+          <span class="metric-label">On a slice-level test split, with false-positive rates per slice. Re-measured per scan on held-out scans, the reimplementation above reaches 74.7%.</span>
         </div>
         <ul class="tags" aria-label="Technologies">
           <li>Deep learning</li><li>YOLOv5</li><li>Object detection</li><li>Explainability</li><li>LIDC-IDRI</li>
