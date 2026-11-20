@@ -148,6 +148,43 @@
           <span class="muted">58 tests · CI · data under the Open Government Licence – Canada</span>
         </div>
       </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>Telco Customer Churn Prediction</h3>
+          <span class="badge">Group project · Revised</span>
+        </div>
+        <p class="tagline">Predicting which telecom customers will leave, and choosing the model from business costs instead of F1 alone.</p>
+        <p>
+          A group assignment from my master's Machine Learning course, which I then revised to
+          address the instructor's review. Four scikit-learn models are compared on 1,409 held-out
+          customers. Instead of declaring a winner by F1, a cost analysis shows which model pays
+          off depending on what a retained customer is worth.
+        </p>
+        <ul class="points">
+          <li>Found and removed target leakage: IBM's own churn score, customer lifetime value and churn reason are model outputs or known only after a customer leaves</li>
+          <li>Scaling and encoding inside a scikit-learn Pipeline, so cross-validation never sees the test set, and class weighting for the 26.5% churn rate</li>
+          <li>Cost-sensitivity analysis with break-even points: the recommended model depends on one ratio, retention rate × customer value / offer cost</li>
+          <li>Explains the recommended Logistic Regression itself, with odds ratios, permutation importance and a surrogate tree that matches 92.1% of its decisions</li>
+          <li>A script run in CI checks that every number in the text appears in the notebook outputs</li>
+        </ul>
+        <div class="metric">
+          <span class="metric-value">0.848 ROC AUC</span>
+          <span class="metric-label">Recommended model on 1,409 held-out customers, flagging 78% of those who churned</span>
+        </div>
+        <figure class="project-figure">
+          <img src="assets/churn_cost_sensitivity.png" width="936" height="546" loading="lazy"
+               alt="Line chart of each model's net campaign value on the test set as k, the retention rate times customer value divided by offer cost, grows from 0 to 8. The baseline Logistic Regression is best for small k, and the optimized Logistic Regression overtakes the optimized Decision Tree at k = 4.5.">
+          <figcaption>Which model is worth more depends on what a kept customer is worth.</figcaption>
+        </figure>
+        <ul class="tags" aria-label="Technologies">
+          <li>Python</li><li>scikit-learn</li><li>pandas</li><li>Jupyter</li><li>Logistic Regression</li><li>Decision Trees</li><li>Model explainability</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/jonahernan99/telco-churn-prediction" rel="noopener">Source code →</a>
+          <span class="muted">With Juan Davila, Alan Guijarro and Jaime Potes · CI</span>
+        </div>
+      </article>
     </section>
 
     <section class="section container" id="research" aria-labelledby="research-title">
