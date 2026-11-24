@@ -81,7 +81,7 @@
       <article class="project">
         <div class="project-head">
           <h3>Lung Nodule Detection</h3>
-          <span class="badge">v0.7.0 · First results</span>
+          <span class="badge">v0.8.0 · First results</span>
         </div>
         <p class="tagline">Rebuilding my thesis in the open with a stricter, scan-level evaluation.</p>
         <p>
@@ -97,6 +97,7 @@
           <li>Trained YOLOv5s on a free Kaggle GPU and tested once on 88 held-out scans, with a bootstrap confidence interval</li>
           <li>Error analysis by nodule size: 100% of nodules of 20 mm or more are found at one false positive per scan, but only 69% of those under 6 mm, which account for most misses</li>
           <li>Built a 2.5D input that stacks neighbouring slices as color channels to target small nodules, plus early stopping for the overfitting seen after about 35 epochs; the comparison run is next</li>
+          <li>Eigen-CAM explanations, as in the thesis, turned into a measurable check: the share of each map inside its candidate's box, compared between real nodules and false positives</li>
         </ul>
         <div class="metric">
           <span class="metric-value">74.7% CPM</span>
@@ -107,7 +108,7 @@
         </ul>
         <div class="links">
           <a href="https://github.com/jonahernan99/lung-nodule-detection" rel="noopener">Source code →</a>
-          <span class="muted">167 tests · metric checked against the official challenge code</span>
+          <span class="muted">185 tests · metric checked against the official challenge code</span>
         </div>
       </article>
 
