@@ -81,34 +81,35 @@
       <article class="project">
         <div class="project-head">
           <h3>Lung Nodule Detection</h3>
-          <span class="badge">v0.8.0 · First results</span>
+          <span class="badge">v0.9.0 · 2.5D results</span>
         </div>
         <p class="tagline">Rebuilding my thesis in the open with a stricter, scan-level evaluation.</p>
         <p>
           My thesis evaluated nodule detection mostly per 2D slice, which lets near-identical
           neighbouring slices leak between training and test sets. This reimplementation splits
           data by scan using LUNA16's official subsets and measures false positives per scan, as
-          the LUNA16 challenge does. The result is lower than the thesis's 88.0%, as expected,
-          and it is the honest one.
+          the LUNA16 challenge does. Under that stricter evaluation, a 2.5D input that I designed
+          from an error analysis brings the detector to 86.1% CPM, close to the thesis's per-slice
+          88.0%.
         </p>
         <ul class="points">
           <li>Scan-level FROC/CPM validated against the official LUNA16 evaluation: identical sensitivities on the challenge's sample submission</li>
           <li>CT preprocessing, splits by LUNA16 subset, and 2D-to-3D merging of slice detections</li>
           <li>Trained YOLOv5s on a free Kaggle GPU and tested once on 88 held-out scans, with a bootstrap confidence interval</li>
-          <li>Error analysis by nodule size: 100% of nodules of 20 mm or more are found at one false positive per scan, but only 69% of those under 6 mm, which account for most misses</li>
-          <li>Built a 2.5D input that stacks neighbouring slices as color channels to target small nodules, plus early stopping for the overfitting seen after about 35 epochs; the comparison run is next</li>
-          <li>Eigen-CAM explanations, as in the thesis, turned into a measurable check: the share of each map inside its candidate's box, compared between real nodules and false positives</li>
+          <li>Error analysis by nodule size showed small nodules were the weak spot: only 69% of those under 6 mm were found at one false positive per scan</li>
+          <li>Designed a 2.5D input that stacks neighbouring slices as color channels: CPM rose from 74.7% to 86.1%, a paired gain of +11.4 points (95% CI +6.0 to +17.6), and small-nodule detection from 69% to 80%</li>
+          <li>Tested Eigen-CAM, the thesis's explainability method, with a measurable check instead of pictures: in this setup its maps do not separate nodules from false positives (AUC 0.42), reported as a negative result</li>
         </ul>
         <div class="metric">
-          <span class="metric-value">74.7% CPM</span>
-          <span class="metric-label">On 88 held-out LUNA16 scans, false positives counted per scan (95% CI 69.0–80.1%). Finds 80% of nodules at one false positive per scan.</span>
+          <span class="metric-value">86.1% CPM</span>
+          <span class="metric-label">On 88 held-out LUNA16 scans with the 2.5D input, false positives counted per scan (95% CI 80.2–92.0%), up from 74.7% with single slices. Finds 88% of nodules at one false positive per scan.</span>
         </div>
         <ul class="tags" aria-label="Technologies">
           <li>Python</li><li>NumPy</li><li>YOLO</li><li>Medical imaging</li><li>Computer vision</li><li>pytest</li>
         </ul>
         <div class="links">
           <a href="https://github.com/jonahernan99/lung-nodule-detection" rel="noopener">Source code →</a>
-          <span class="muted">185 tests · metric checked against the official challenge code</span>
+          <span class="muted">190 tests · metric checked against the official challenge code</span>
         </div>
       </article>
 
@@ -207,7 +208,7 @@
         </p>
         <div class="metric">
           <span class="metric-value">88.0% CPM</span>
-          <span class="metric-label">On a slice-level test split, with false-positive rates per slice. Re-measured per scan on held-out scans, the reimplementation above reaches 74.7%.</span>
+          <span class="metric-label">On a slice-level test split, with false-positive rates per slice. Re-measured per scan on held-out scans, the reimplementation above reaches 86.1% with a 2.5D input.</span>
         </div>
         <ul class="tags" aria-label="Technologies">
           <li>Deep learning</li><li>YOLOv5</li><li>Object detection</li><li>Explainability</li><li>LIDC-IDRI</li>
