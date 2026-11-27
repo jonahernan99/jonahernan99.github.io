@@ -191,6 +191,33 @@
           <span class="muted">With Juan Davila, Alan Guijarro and Jaime Potes · CI</span>
         </div>
       </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>NOC RAG Assistant</h3>
+          <span class="badge wip">In progress</span>
+        </div>
+        <p class="tagline">Ask about Canadian occupations and get answers that cite the official National Occupational Classification.</p>
+        <p>
+          A retrieval-augmented assistant over the NOC 2021, which describes all 516 occupation
+          groups used in Canada's labour statistics, immigration programs and job postings. The
+          focus is measuring retrieval before generating anything: an answer can only be as good
+          as the passages it is given.
+        </p>
+        <ul class="points">
+          <li>Reads Statistics Canada's open NOC files into one record per occupation, with duties, requirements and 27,935 example job titles</li>
+          <li>Splits each occupation into citable passages and keeps exclusions out of the index, since they name the occupations a group does not cover</li>
+          <li>BM25 retrieval written from scratch and tested against the formula, as the baseline for semantic and hybrid retrieval</li>
+          <li>Next: a benchmark from real Job Bank postings (employer titles with the NOC code they chose), embeddings, and cited answers generated with an LLM</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li>Python</li><li>RAG</li><li>Information retrieval</li><li>BM25</li><li>Open data</li><li>pytest</li>
+        </ul>
+        <div class="links">
+          <a href="https://github.com/jonahernan99/noc-rag-assistant" rel="noopener">Source code →</a>
+          <span class="muted">24 tests · CI · data under the Open Government Licence – Canada</span>
+        </div>
+      </article>
     </section>
 
     <section class="section container" id="research" aria-labelledby="research-title">
