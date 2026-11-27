@@ -81,7 +81,7 @@
       <article class="project">
         <div class="project-head">
           <h3>Lung Nodule Detection</h3>
-          <span class="badge">v0.9.0 · 2.5D results</span>
+          <span class="badge">v0.9.1 · 2.5D results</span>
         </div>
         <p class="tagline">Rebuilding my thesis in the open with a stricter, scan-level evaluation.</p>
         <p>
@@ -97,7 +97,7 @@
           <li>CT preprocessing, splits by LUNA16 subset, and 2D-to-3D merging of slice detections</li>
           <li>Trained YOLOv5s on a free Kaggle GPU and tested once on 88 held-out scans, with a bootstrap confidence interval</li>
           <li>Error analysis by nodule size showed small nodules were the weak spot: only 69% of those under 6 mm were found at one false positive per scan</li>
-          <li>Designed a 2.5D input that stacks neighbouring slices as color channels: CPM rose from 74.7% to 86.1%, a paired gain of +11.4 points (95% CI +6.0 to +17.6), and small-nodule detection from 69% to 80%</li>
+          <li>Designed a 2.5D input that stacks neighbouring slices as color channels: CPM rose from 74.7% to 86.1%, a paired gain of +11.4 points (95% CI +6.0 to +17.6), and small-nodule detection from 69% to 80%; a control run with identical training settings reproduced the single-slice result exactly, so the gain comes from the input</li>
           <li>Tested Eigen-CAM, the thesis's explainability method, with a measurable check instead of pictures: in this setup its maps do not separate nodules from false positives (AUC 0.42), reported as a negative result</li>
         </ul>
         <div class="metric">
